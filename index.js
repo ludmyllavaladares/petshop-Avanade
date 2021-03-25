@@ -71,6 +71,23 @@ const campanhaVacina = () => {
     console.log(`${naoVacinados} deve ser vacinados!`);
 }
 
+const adicionarPet = () => {
+    const petNovo = {
+        nome: 'Blanco',
+        tipo: 'cachorro',
+        idade: 1,
+        reca: 'maltês',
+        tutor: 'Levita',
+        contato: '(81) 99999-3399',
+        vacinado: false,
+        serviços: ['']
+
+    }
+    pets.push(petNovo);
+}
+
+adicionarPet();
+
 vacinarPet();
 
 listarPets();
