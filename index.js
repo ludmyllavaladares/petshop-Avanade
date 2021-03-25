@@ -5,31 +5,31 @@ let pets = [
         nome: 'Sansão',
         tipo: 'cachorro',
         idade: 8,
-        reca: 'schnauzer',
+        raca: 'schnauzer',
         tutor: 'Lud',
         contato: '(81) 99999-0000',
         vacinado: true,
-        serviços: ['banho', 'tosa', 'vacina', 'hotelzinho']
+        servicos: ['banho', 'tosa', 'vacina', 'hotelzinho']
     },
     {
-        nome: 'Biscoito',
+        nome: 'Biscoita',
         tipo: 'gato',
         idade: 2,
-        reca: 'SDR',
+        raca: 'SDR',
         tutor: 'Bruno',
         contato: '(81) 92222-8888',
         vacinado: false,
-        serviços: ['banho']
+        servicos: ['banho', 'unhas aparadas']
     },
     {
         nome: 'Dalila',
         tipo: 'cachorro',
         idade: 5,
-        reca: 'pastor-alemão',
+        raca: 'pastor-alemão',
         tutor: 'Pedro',
         contato: '(81) 91111-5555',
         vacinado: true,
-        serviços: ['banho','vacina']
+        servicos: ['banho','vacina']
     },
     {
         nome: 'Frida',
@@ -39,7 +39,7 @@ let pets = [
         tutor: 'João Henrique',
         contato: '(81) 99999-4565',
         vacinado: true,
-        serviços: ['banho', 'tosa', 'vacina', 'medicação']
+        servicos: ['banho', 'tosa', 'vacina', 'medicação']
     },
 ];
 
@@ -47,9 +47,9 @@ const listarPets = () => {
     for(let pet of pets){
         // template string
         // console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.idade}`);
-
         // console.log(pet.nome);
-        vacinarPet(pet.vacinado, pet.nome);
+        // vacinarPet(pet.vacinado, pet.nome);
+
     }
 }
 
@@ -68,7 +68,7 @@ const campanhaVacina = () => {
     }
 
     console.log("=====================");
-    console.log(`${naoVacinados} deve ser vacinados!`);
+    console.log(`${naoVacinados} pet(s) deve(m) ser vacinados!`);
 }
 
 const adicionarPet = () => {
@@ -76,20 +76,52 @@ const adicionarPet = () => {
         nome: 'Blanco',
         tipo: 'cachorro',
         idade: 1,
-        reca: 'maltês',
+        raca: 'maltês',
         tutor: 'Levita',
         contato: '(81) 99999-3399',
         vacinado: false,
-        serviços: ['']
+        servicos: ['']
 
     }
     pets.push(petNovo);
 }
 
+const darBanhoPet = () => {
+    for(let pet of pets){
+    const tomouBanho = pet.servicos.includes('banho');
+    if(tomouBanho == true){
+        
+        console.log(`${pet.nome} já tomou banho`)
+    }
+}
+}
+const tosarPet = () => {
+    console.log("=============================");
+    for(let pet of pets){
+    const tosado = pet.servicos.includes('tosa');
+    if(tosado == true){
+        
+        console.log(`${pet.nome} está com o pelinho na régua`)
+    }
+}
+}
+const apararUnhasPet = () => {
+    console.log("=============================");
+    for(let pet of pets){
+    const unhasAparadas = pet.servicos.includes('unhas aparadas');
+    if(unhasAparadas == true){
+        
+        console.log(`${pet.nome} está de unhas aparadas`)
+    }
+}
+}
+
+
 adicionarPet();
-
 vacinarPet();
-
 listarPets();
-
 campanhaVacina();
+console.log("===========================");
+darBanhoPet();
+tosarPet();
+apararUnhasPet();
