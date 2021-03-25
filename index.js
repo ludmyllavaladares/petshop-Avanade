@@ -46,9 +46,33 @@ let pets = [
 const listarPets = () => {
     for(let pet of pets){
         // template string
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.idade}`);
+        // console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.idade}`);
+
+        // console.log(pet.nome);
+        vacinarPet(pet.vacinado, pet.nome);
     }
 }
 
+const vacinarPet = (vacinado, nome) => {
+    if(vacinado === false) {      
+            console.log(`${nome} não foi vacinado(a)`);
+        }
+    }
+
+const campanhaVacina = () => {
+    let naoVacinados = 0;
+    for(let pet of pets){
+        if(pet.vacinado === false){
+            naoVacinados++;
+        }
+    }
+
+    console.log("=====================");
+    console.log(`${naoVacinados} deve ser vacinados!`);
+}
+
+vacinarPet();
+
 listarPets();
-// console.log(pets);
+
+campanhaVacina();
