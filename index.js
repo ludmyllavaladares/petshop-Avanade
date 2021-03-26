@@ -1,4 +1,5 @@
 const nomePetshop = "PETSHOP AVANADE";
+const bancoDadosJson = require("./bancoDados.json");
 
 let pets = [
     {
@@ -49,15 +50,20 @@ const listarPets = () => {
         // console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.idade}`);
         // console.log(pet.nome);
         // vacinarPet(pet.vacinado, pet.nome);
+        for (const servico of pet.servicos) {
+            console.log(`${servico.data} - ${servico.nome}`);
+        }
 
     }
 }
 
 const vacinarPet = (vacinado, nome) => {
-    if(vacinado === false) {      
-            console.log(`${nome} não foi vacinado(a)`);
-        }
-    }
+    vacinado == false ? console.log(`${nome} não foi vacinado`) :  console.log(`${nome} Já foi vacinado`);
+    // if(vacinado === false) {      
+    //         console.log(`${nome} não foi vacinado(a)`);
+    //     }
+    // }
+}
 
 const campanhaVacina = () => {
     let naoVacinados = 0;
@@ -86,42 +92,59 @@ const adicionarPet = () => {
     pets.push(petNovo);
 }
 
+const verData = () => {
+    let datetime = new Date()
+    let formatted_date = datetime.getFullYear() + "/" + (datetime.getMonth() + 1) + "/" + datetime.getDate() + " " + datetime.getHours() + ":" + 
+    datetime.getMinutes() + ":" + datetime.getSeconds();
+    console.log(`Data e Hora do Serviço: ${formatted_date}`)
+
+}
+
 const darBanhoPet = () => {
     for(let pet of pets){
     const tomouBanho = pet.servicos.includes('banho');
-    if(tomouBanho == true){
+    tomouBanho == true ? console.log(`${pet.nome} já tomou banho`) : null;
+    // if(tomouBanho == true){
         
-        console.log(`${pet.nome} já tomou banho`)
-    }
+    //     console.log(`${pet.nome} já tomou banho`)
+    //     verData();
+    // }
 }
 }
 const tosarPet = () => {
     console.log("=============================");
     for(let pet of pets){
     const tosado = pet.servicos.includes('tosa');
-    if(tosado == true){
+    tosado == true ? console.log(`${pet.nome} Já foi tosado`) : null;
+    // if(tosado == true){
         
-        console.log(`${pet.nome} está com o pelinho na régua`)
-    }
+    //     console.log(`${pet.nome} está com o pelinho na régua`)
+    //     verData();
+    // }
 }
 }
 const apararUnhasPet = () => {
     console.log("=============================");
     for(let pet of pets){
     const unhasAparadas = pet.servicos.includes('unhas aparadas');
-    if(unhasAparadas == true){
+    unhasAparadas == true ? console.log(`${pet.nome} Já fez a unha`) : null;
+    // if(unhasAparadas == true){
         
-        console.log(`${pet.nome} está de unhas aparadas`)
-    }
+    //     console.log(`${pet.nome} está de unhas aparadas`)
+    //     verData();
+    // }
 }
 }
 
-
-adicionarPet();
+// adicionarPet();
 vacinarPet();
-listarPets();
+// listarPets();
 campanhaVacina();
 console.log("===========================");
 darBanhoPet();
 tosarPet();
 apararUnhasPet();
+// console.log("===========================");
+// console.log(bancoDadosJson);
+// console.log("===========================");
+// console.log(JSON.stringify(pets));
