@@ -1,11 +1,19 @@
 {
   "name": "petshop-avanade",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludmyllavaladares/petshop-Avanade.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ludmyllavaladares/petshop-Avanade/issues"
+  },
+  "homepage": "https://github.com/ludmyllavaladares/petshop-Avanade#readme",
+  "description": ""
 }
